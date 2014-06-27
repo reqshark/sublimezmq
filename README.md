@@ -26,10 +26,13 @@ I recommend using `brew install zeromq` if you don't feel like compiling libzmq.
 
 Installation
 ------------
-You'll want to confirm that your compiled version of libzmq works before you do this to install the plugin using git:
+confirm that your compiled version of libzmq works.
+
+from the Packages directory git clone:
 
 ``` bash
-$ git clone https://github.com/reqshark/sublimezmq.git '~/Library/Application Support/Sublime Text 3/Packages/sublimezmq'
+$ cd ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/
+$ git clone https://github.com/reqshark/sublimezmq.git
 ```
 
 Now what
