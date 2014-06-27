@@ -17,7 +17,7 @@ The sublimezmq package circumverts all attempts to install and import pyzmq bind
 
 Basic Kernel Requirements
 ------------
-1. Darwin. Tested on OS X 10.10 and 10.9 (nothing else tested yet). Linux and Windows compatibility coming right up after package control distribution/installation.
+1. Darwin. Tested on OS X 10.10 and 10.9 (nothing else tested yet). No Windows compatibility (yet).
 
 2. Zeromq Messaging library installed (make sure to at least have it sym linked) at /usr/local/lib/libzmq.dylib. This dependency is temporary, and it would be more preferable to follow Sublime Plugin conventions with a default and user `sublime.settings` config file so you can tell sublime where to find your zmqlib.
 
