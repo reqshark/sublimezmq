@@ -1,34 +1,17 @@
 sublimezmq
 ==========
 
-### Sublime Text C language binding to zeromq 
+### Sublime Text binding
 
-Low latency, low footprint zeromq messaging delivered by Sublime Text 3. 
+Minimal messaging interface for Sublime Text 3.
 
-What this is not
+Basic Kernel Setup
 ------------
-This is not [pyzmq](https://github.com/zeromq/pyzmq). Lame, why not just use pyzmq and import it to a Sublime Text plugin? 
+1. Darwin. Tested on OS X 10.10 and 10.9
 
-Sublime runs it's own zipped version of the Python interpreter. Word up. 
+2. libzmq on *nix sym linked at `/usr/local/lib/libzmq.dylib` or just edit [zmq.py](https://github.com/reqshark/sublimezmq/blob/master/zmq.py#L3).
 
-Pyzmq was not included in the Sublime Text bundled Python environment. This makes sense because libzmq has to be compiled. 
-
-The sublimezmq package circumverts all attempts to install and import pyzmq bindings from directly within our favorite Text Editor's unique interpreter.
-
-Basic Kernel Requirements
-------------
-1. Darwin. Tested on OS X 10.10 and 10.9 (nothing else tested yet). No Windows compatibility (yet).
-
-2. Zeromq Messaging library installed (make sure to at least have it sym linked) at /usr/local/lib/libzmq.dylib. This dependency is temporary, and it would be more preferable to follow Sublime Plugin conventions with a default and user `sublime.settings` config file so you can tell sublime where to find your zmqlib.
-
-I recommend using `brew install zeromq` if you don't feel like compiling libzmq.
-
-
-Installation
-------------
-confirm that your compiled version of libzmq works.
-
-from the Packages directory git clone:
+3. make sure your local libzmq works. Then from inside Sublime's Packages directory git clone:
 
 ``` bash
 $ cd ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/
@@ -37,13 +20,7 @@ $ git clone https://github.com/reqshark/sublimezmq.git
 
 Now what
 ------------
-Sublime Text 3 now publishes the file name and path of any file you save locally over a unix socket. 
-
-This is my preference over having the built in python interpreter open a subprocess shell for special interaction.
-
-Now connect a basic zmq subscriber without any special options. 
-
-Set your local zeromq process subscription over a unix socket at `ipc:///tmp/sublime`. It doesnt matter how you like to use libzmq.
+hook Sublime Text 3's `sublime_plugin.EventListener` over zmq unix sockets.
 
 Example using the [node zeromq bindings](https://github.com/JustinTulloss/zeromq.node):
 ``` js
