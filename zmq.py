@@ -30,11 +30,11 @@ zmq.zmq_msg_data.argtypes = [POINTER(_Message)]
 zmq.zmq_msg_size.argtypes = [POINTER(_Message)]
 zmq.zmq_msg_close.argtypes = [POINTER(_Message)]
 
-class Message(object):
-  def __init__(self): self._m = _Message(); zmq.zmq_msg_init(byref(self._m));
-
 class Context(object):
   def __init__(self): self.pointer = zmq.zmq_ctx_new(); self.sockets = [];
+
+class Message(object):
+  def __init__(self): self._m = _Message(); zmq.zmq_msg_init(byref(self._m));
 
 class Socket(object):
   def __init__(self,ctx,socket_integer):
