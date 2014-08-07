@@ -2,6 +2,8 @@ var zmq = require('zmq');
 var sub = zmq.socket('sub');
 var pub = zmq.socket('pub');
 
+//ipc is probably a unix/linux domain socket
+//so for the windows env just opt for tcp over localhost
 sub.connect('ipc:///tmp/sublime');
 
 sub.subscribe('on_post_save');
