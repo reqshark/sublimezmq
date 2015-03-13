@@ -1,6 +1,6 @@
 from ctypes import *
 
-zmq = cdll.LoadLibrary('/usr/local/lib/libzmq.4.dylib')
+zmq = cdll.LoadLibrary('/usr/local/lib/libzmq.dylib')
 
 class _Message(Structure):
   _fields_ = [('_', c_ubyte * 32)]
